@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+div.login, div.registration {
+  width: 280px;
+  margin: 65px auto;
+
+  form {
+    .field {
+      color: #4174CA;
+      font-size: small;
+    }
+
+    input[type="submit"] {
+      border: medium none;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 230px;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 230px;
+      height: 40px;
+    }
+
+    .check > label {
+      font-weight: normal;
+    }
+  }
+}
