@@ -1,7 +1,14 @@
-.push-left {
-  float: left;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+a {
+  text-decoration: none;
 }
 
-.push-right {
-  float: right;
+a:hover {
+	text-decoration: underline;
+}
+
+.clear {
+  clear: both;
 }
