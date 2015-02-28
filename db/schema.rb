@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150206185630) do
+ActiveRecord::Schema.define(:version => 20150224162926) do
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_roles", :force => true do |t|
+    t.integer "user_id", :null => false
+    t.integer "role_id", :null => false
+  end
+
+  add_index "user_roles", ["role_id"], :name => "user_roles_role_id_fk"
+  add_index "user_roles", ["user_id", "role_id"], :name => "index_user_roles_on_user_id_and_role_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -32,5 +46,8 @@ ActiveRecord::Schema.define(:version => 20150206185630) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "user_roles", "roles", :name => "user_roles_role_id_fk"
+  add_foreign_key "user_roles", "users", :name => "user_roles_user_id_fk"
 
 end
